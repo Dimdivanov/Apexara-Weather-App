@@ -55,3 +55,18 @@ JWT_EXPIRES_IN=7d
 WEATHER_API_KEY=your_weather_api_key
 NEWS_API_KEY=your
 ```
+## Getting Started (Run Locally)
+
+### Prerequisites
+- Node.js (LTS recommended)
+- npm
+- (Optional) MongoDB / any DB your backend uses
+
+---
+
+### 1. Run the Backend (API)
+
+```bash
+cd di-1-backend
+npm install
+npm run dev
