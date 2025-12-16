@@ -1,0 +1,8 @@
+**/.git_backup/
+**/node_modules/
+**/dist/
+**/build/
+**/.angular/
+**/.env
+**/.env.*
+**/.DS_Store

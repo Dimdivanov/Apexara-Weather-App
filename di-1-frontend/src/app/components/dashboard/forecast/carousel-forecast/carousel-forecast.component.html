@@ -1,0 +1,30 @@
+<div class="card" id="hourly">
+    @if (!weatherService.weatherData()?.hourlyWeather) {
+        <h2>No data available.</h2>
+    } @else {
+        <p-carousel [value]="hourlyWeather()" [numVisible]="9" [numScroll]="3" [circular]="true" orientation="horizontal" [responsiveOptions]="responsiveOptions" indicatorStyleClass="p-carousel-indicator-button">
+            <ng-template let-hour pTemplate="item">
+                <div class="weather-item">
+                    <div class="image-wrapper">
+                        <img [src]="'assets/img/weather-icons/' + hour?.weather.icon + '.svg'" alt="weather-icon" draggable="false"/>
+                    </div>
+                        
+                    <div class="hour-date">
+                        <p>{{ hour.dt | date: 'HH:mm' }}</p>
+                    </div>
+                    
+                    <div class="hour-temp">
+                        <p>
+                            {{
+                                temperatureToggleService.isCelsius()
+                                ? (hour.temp | toFixed : 0)
+                                : temperatureToggleService.convertToF(hour.temp ?? 0)
+                            }}
+                            {{ temperatureToggleService.isCelsius() ? '°C' : '°F' }}
+                        </p>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    }
+</div>

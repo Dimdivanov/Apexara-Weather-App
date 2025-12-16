@@ -1,0 +1,18 @@
+.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.dashboard-menu {
+    display: flex;
+    gap: 50px;
+    font-size: large;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 80%;
+    }
+}

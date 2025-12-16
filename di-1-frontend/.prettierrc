@@ -1,0 +1,24 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": true,
+  "printWidth": 130,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "options": {
+        "printWidth": 90
+      }
+    },
+    {
+      "files": ["*.html", "*.css", "*.scss"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ],
+  "bracketSpacing": true,
+  "trailingComma": "none",
+  "arrowParens": "avoid"
+}

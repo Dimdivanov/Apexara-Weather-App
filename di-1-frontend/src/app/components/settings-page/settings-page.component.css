@@ -1,0 +1,59 @@
+.container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 900px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 15px;
+    background-color: var(--bg-settings-menu);
+    padding: 20px 50px;
+}
+
+.account-settings, .password-settings {
+    margin: 10px 0px;
+}
+
+.profile-container, .password-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.password-delete-container {
+    margin: 50px auto;
+}
+
+.profile-container > h2, .password-container > h2 {
+    text-decoration: underline;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-primary {
+    width: 20%;
+}
+
+/* delete dialog */
+.ipi-delete-dialog { 
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

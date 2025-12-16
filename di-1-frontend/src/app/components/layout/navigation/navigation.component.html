@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="logo-city-container">
+        <div class="logo-container">
+            <a class="logo" routerLink="/dashboard">
+                <img src="assets/logo.png" alt="logo.png"/>
+            </a>
+        </div>
+
+        <div class="city-container">
+            <span>{{ weatherService.currentCity() | titlecase | truncate }}</span>
+
+            <img
+                (click)="addCurrentCityToFavorites()"
+                [src]="isCurrentCityFavorite() ? 'assets/img/star-full.svg' : 'assets/img/star-regular.svg'"
+                class="star-img-regular" 
+            />
+        </div>
+    </div>
+
+    <div class="user-menu">
+        <div class="nav-items">
+            <form class="search-box" (submit)="onSubmit($event, searchInput)">
+                <input #searchInput type="text" class="input-search" placeholder="Type to Search..."/>
+
+                <a class="btn-search" (click)="searchInput.focus()"><img class="search-img" src="/assets/img/magnifier.svg"/></a>
+            </form>
+
+            <a class="menu-btn" (click)="navigationService.toggle(); $event.stopPropagation()">
+                <span class="button-menu-text">Menu</span>
+            </a>
+        </div>
+    </div>
+</div>

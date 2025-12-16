@@ -1,0 +1,209 @@
+<div class="container-wrapper">
+    <div class="container-main">
+        <!-- left side -->
+        <div class="weather-conditions-main-left">
+            <div class="weather-data-main">
+                <h1>{{ weatherService.currentCity() | uppercase }}</h1>
+                
+                <div class="weather-icon-data">
+                    <div class="weather-icon-wrapper">
+                        @if (isLoading()) {
+                            <p-skeleton animation="wave" class="custom-skeleton" width="10rem" height="4rem" borderRadius="16px" shape="rounded"/>
+                        } @else {
+                            <img [src]="'assets/img/weather-icons/' + weatherService.weatherData()?.currentWeather?.weather?.icon + '.svg'" alt="icon-weather.png" draggable="false"/>
+                        }
+                    </div>
+                    
+                    <div class="degrees">
+                        {{
+                            temperatureToggleService.isCelsius()
+                            ? (weatherService.weatherData()?.currentWeather?.temp | toFixed : 0)
+                            : temperatureToggleService.convertToF(weatherService.weatherData()?.currentWeather?.temp ?? 0)
+                        }}
+                        {{ temperatureToggleService.isCelsius() ? '°C' : '°F' }}
+                    </div>
+
+                    <span class="date-time">
+                        {{ weatherService.weatherData()?.currentWeather?.dt ? (weatherService.weatherData()?.currentWeather?.dt | date:'EEEE') : 'loading date...'}}
+                        {{ timeSignal() | date:'HH:mm:ss' }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="weather-description-data-main">
+                <div class="weather-description-container">
+                    <div class="weather-description-data">
+                        <div class="weather-image-wrapper">
+                            @if (isLoading()) {
+                                <p-skeleton width="10rem" height="4rem" borderRadius="16px"/>
+                            } @else {
+                                <img [src]="'assets/img/weather-icons/' + weatherService.weatherData()?.currentWeather?.weather?.icon + '.svg'" alt="weather-icon" draggable="false"/>
+                            }
+                        </div>
+                        
+                        <p>{{ weatherService.weatherData()?.currentWeather?.weather?.description }}</p>
+                    </div>
+
+                    <div class="rain-percentage-display">
+                        <img src="assets/img/weather-icons/rain.svg" alt="rain-icon" draggable="false"/>
+                        
+                        <p>Rain: {{ rainIdx() !== null ? (rainIdx() + ' mm') : 'No rain expected' }}</p>
+                    </div>
+                </div>
+
+                <div class="weather-description-image">
+                    <img src="assets/img/sofia-test-img.jpg" alt="sampleimg.png" draggable="false"/>
+                </div>
+            </div>
+        </div>
+        <!-- right side -->
+        <div class="weather-conditions-main-right">
+            <div class="highlights-header-section">
+                <div class="header-links">
+                    <a [routerLink]="['/dashboard']" fragment="hourly">Hourly</a>
+                    
+                    <a [routerLink]="['/news']">News</a>
+                </div>
+                
+                <div class="profile-container">
+                    @if (userName()) {
+                        <span>Welcome {{ userName() }}</span>
+                    }
+
+                    <div class="unit-toggle">
+                        <button [class.active]="temperatureToggleService.isCelsius()" (click)="setUnit(true)">
+                            °C
+                        </button>
+
+                        <button [class.active]="!temperatureToggleService.isCelsius()" (click)="setUnit(false)">
+                            °F
+                        </button>
+                    </div>
+
+                    <div class="profile-img-container">
+                        <img src="assets/img/profile-img.svg" alt="profile-img" [routerLink]=" userName() ? '/my-profile' : '/login' " draggable="false"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlights-section">
+                <div class="section-title">
+                    <h3>Todays Highlights</h3>
+                </div>
+
+                <div class="weather-conditions-highlights">
+                    <div class="conditions-highlights">
+                        @if (isLoading()) {
+                            <p-skeleton animation="wave" class="custom-skeleton" width="19rem" height="20rem" borderRadius="15px"/>
+                        } @else {
+                            <h4> UV Index </h4>
+
+                            <div class="uv-wrapper">
+                                <div class="uv-index-status">
+                                    <img src="assets/img/uv-index/circle-particle.svg" class="circle-particle" alt="circle-particle" draggable="false"/>
+                                    
+                                    <p>{{ weatherService.weatherData()?.currentWeather?.uvi }}</p>
+
+                                    <img 
+                                        [@rotateUv]="{ value: uvIndex, params: { angle: rotationAngle * 12 } }" 
+                                        src="assets/img/uv-index/scale-particle.svg" 
+                                        class="scale-particle" 
+                                        alt="scale-particle"
+                                        draggable="false" 
+                                    />
+                                </div>
+                                
+                                <div class="uv-mask">
+                                    <p>{{ uviMessage() }}</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="conditions-highlights">
+                        <h4>Wind Status</h4>
+
+                        <div class="wind-status"> 
+                            <p>{{ weatherService.weatherData()?.currentWeather?.windSpeed }} km/h</p>
+                        </div>
+
+                        <div class="wind-degree">wind degree icon: {{ weatherService.weatherData()?.currentWeather?.windDeg }}</div>
+                    </div>
+
+                    <div class="conditions-highlights">
+                        <h4>Sunset & Sunrise</h4>
+
+                        <div class="sun-status">
+                            <div class="sun-data">
+                                <img src="assets/img/weather-icons/sunrise.svg" alt="sunrise-icon" draggable="false"/>
+
+                                <p>{{ weatherService.weatherData()?.currentWeather?.sunrise | timeTransform }}AM</p>
+                            </div>
+
+                            <div class="sun-data">
+                                <img src="assets/img/weather-icons/sunset.svg" alt="sunset-icon" draggable="false"/>
+                                
+                                <p>{{ weatherService.weatherData()?.currentWeather?.sunset | timeTransform }}PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conditions-highlights">
+                        <h4>Humidity</h4>
+                        
+                        <div class="humidity-data">
+                            <div class="humidity-stats">
+                                <p>{{ weatherService.weatherData()?.currentWeather?.humidity }} %</p>
+
+                                <div class="progressbar-card">
+                                    <p-progressbar
+                                        [value]= "weatherService.weatherData()?.currentWeather?.humidity"
+                                        styleClass="vertical-progressbar"
+                                        valueStyleClass="vertical-text-progressbar"
+                                        showValue="false"
+                                        color="#1cb0f6"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conditions-highlights">
+                        <h4>Visibility</h4>
+
+                        <div class="visibility-stats"> 
+                            <p>{{ weatherService.weatherData()?.currentWeather?.visibility }} km</p>
+
+                            <img src="assets/img/visibility.svg" alt="visibility" draggable="false"/>
+                        </div>
+                    </div>
+
+                    <div class="conditions-highlights">
+                        <h4>Air Quality</h4>
+
+                        <div class="air-stats">
+                            <p>{{ airQuality() }}</p>
+                            
+                            <p-progressbar
+                                [value]= "(airQuality() - 1) * 25"
+                                styleClass="vertical-progressbar-air"
+                                showValue="false"
+                                [color]="getAirQualityColor"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weekly-highlights-section">
+                <div class="section-title">
+                    <h3>Weekly Highlights</h3>
+                </div>
+                
+                <app-weekly-forecast></app-weekly-forecast>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-carousel-forecast></app-carousel-forecast>

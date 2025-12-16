@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1rem;
+}
+
+.weekly-item {
+    max-width: 110px;               
+    min-height: 120px;             
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex: 1 1 calc(33.333% - 1rem); 
+    border-radius: 12px;
+    background-color: var(--white);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    padding: 20px 0px;
+}
+
+.weekly-item img {
+    width: 50px;
+}

@@ -1,0 +1,71 @@
+@if(navigationService.isOpen()) {
+    <div class="container" [@slideInAnimation]="navigationService.isOpen()" (click)="$event.stopPropagation()">
+        <div class="logo-container">
+            <button class="close-btn" (click)="navigationService.close()">
+                <img src="assets/img/close.svg"/>
+            </button>
+        </div>
+        
+        @if (userService.isLoggedIn()) {
+            <div class="my-profile-container">
+                <a routerLink="/my-profile" class="my-profile-link">
+                    <img src="assets/img/profile.svg" class="profile-img"/>
+
+                    <p>My Profile</p>
+                </a>
+            </div>
+
+            <div class="nav-container" appHighlightSidebarMenu>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" routerLink="dashboard" (click)="navigationService.close()">
+                        <span class="side-nav-link-text">Dashboard</span>
+                        
+                        <img class="side-nav-icon" src="assets/img/dashboard.svg"/>
+                    </a>
+                </li>
+            </div>
+
+            <div class="nav-container" appHighlightSidebarMenu>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" routerLink="mylocations" (click)="navigationService.close()">
+                        <span class="side-nav-link-text">My Locations</span>
+                        
+                        <img class="side-nav-icon" src="assets/img/location.svg"/>
+                    </a>
+                </li>
+            </div>
+
+            <div class="log-user">
+                <ipi-button class="btn-primary fluid" (clickChange)="logout()">Logout</ipi-button>
+            </div>
+        } @else {
+            <div class="nav-container" appHighlightSidebarMenu>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" routerLink="register" (click)="navigationService.close()">
+                        <span class="side-nav-link-text">Register</span>
+                        
+                        <img class="side-nav-icon" src="assets/img/register.svg"/>
+                    </a>
+                </li>
+            </div>
+
+            <div class="nav-container" appHighlightSidebarMenu>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" routerLink="login" (click)="navigationService.close()">
+                        <span class="side-nav-link-text">Login</span>
+                        
+                        <img class="side-nav-icon" src="assets/img/login.svg"/>
+                    </a>
+                </li>
+            </div>    
+        }
+
+        <div class="toggle-btn-container" (click)="toggleTheme()">
+            <button class="toggle-theme-btn">Toggle Theme</button>
+        </div>
+
+        <div class="toggle-btn-container">
+            <button class="toggle-theme-btn" (click)="temperatureToggleService.toggleUnit()">Toggle C or F</button>
+        </div>
+    </div>
+}

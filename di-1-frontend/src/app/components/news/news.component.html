@@ -1,0 +1,55 @@
+<div class="news-wrapper">
+    <div class="section-title">
+        <h2>Top Headlines</h2>
+    </div>
+
+    @defer (when (newsService.newsData()?.articles?.length ?? 0) > 0) {
+        @let articles = newsService.newsData()?.articles ?? [];
+
+        @if (articles.length > 0) {
+            @let featured = articles[0];
+
+            <div class="featured-article">
+                <div class="featured-image" [style.backgroundImage]="'url(' + (featured.urlToImage || 'assets/img/fallback-news.png') + ')'">
+                    <div class="featured-overlay">
+                        <h1>{{ featured.title }}</h1>
+
+                        <p>{{ (featured?.content ?? 'No preview available.').slice(0, 200) }}...</p>
+
+                        <a class="read-more-btn" [href]="featured.url" target="_blank">Read Full Article</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="articles-grid">
+            @for (article of articles.slice(1); track article) {
+                <div class="article-card">
+                    <img [src]="article.urlToImage || 'assets/img/fallback-news.png'" alt="thumbnail"/>
+
+                    <div class="card-content">
+                        <h4>{{ article.title }}</h4>
+
+                        <p>{{ (article?.content ?? 'No preview available.').slice(0, 100) }}...</p>
+
+                        <a class="read-more-link" [href]="article.url" target="_blank">Read More</a>
+                    </div>
+                </div>
+            }
+        </div>
+      } @placeholder {
+          <div class="skeleton-wrapper">
+              @for (i of [1, 2, 3, 4, 5]; track i) {
+                <div class="article-card-skeleton">
+                  <p-skeleton width="100%" height="180px" borderRadius="12px"/>
+
+                  <p-skeleton width="80%" height="2rem" borderRadius="8px" style="margin-top: 1rem;"/>
+
+                  <p-skeleton width="90%" height="1.2rem" borderRadius="8px"/>
+                  
+                  <p-skeleton width="40%" height="1rem" borderRadius="8px"/>
+                </div>
+              }
+          </div>
+      }
+</div>

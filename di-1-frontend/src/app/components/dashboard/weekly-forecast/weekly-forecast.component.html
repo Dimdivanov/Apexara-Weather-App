@@ -1,0 +1,25 @@
+<div class="container">
+    @for (weekday of forecastData?.slice(1); track $index) {
+        <div class="weekly-item" appHighlightContainer (click)="modalService.openModal(weekday)">
+            <span>{{ weekday.dt | date : "EEEE" }}</span> 
+
+            <img
+                [src]="'assets/img/weather-icons/' + weekday.weather.icon + '.svg'"
+                alt="Weather Icon"
+                class="weather-icon"
+                draggable="false"
+            />  
+
+            <span>
+                {{
+                    temperatureToggleService.isCelsius()
+                    ? (weekday.temp.day | toFixed : 0)
+                    : temperatureToggleService.convertToF(weekday.temp.day)
+                }}
+                {{ temperatureToggleService.isCelsius() ? '°C' : '°F' }}
+            </span>
+        </div>
+    } @empty {
+        <h2>No data available.</h2>
+    }
+</div>

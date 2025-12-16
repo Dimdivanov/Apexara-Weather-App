@@ -1,0 +1,239 @@
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-transparent-light);
+    z-index: 2;
+}
+
+/* pop up created */
+.container-pop-up {
+    box-sizing: border-box;
+    position: relative;
+    width: 80%;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: var(--transparent-background-modal);
+    background-color: var(--purple-modal-primary); 
+    margin: 3rem auto;
+    padding: 3rem;
+}
+
+/* sunset & sunrise */ 
+.sunset, .sunrise {
+    position: relative;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.sunset img, .sunrise img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+}
+
+.sunset-data, .sunrise-data{
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    border-radius: 5px;
+    color: var(--white);
+    background-color: var(--transparent-background-modal); 
+    padding: 10px;
+}
+
+/* left container */
+.left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 300px;
+    gap: 1em;
+}
+
+.day-time {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+}
+
+.day-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.day-item p {
+    font-weight: 800;
+    font-size: 1em;
+}
+
+.weather-data-popup {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.popup-data {
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.popup-data p {
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.popup-data img {
+    width: 100px;
+}
+
+/* mid container */
+.mid-container {
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 200px;
+}
+
+.popup-weather-data {
+    width: 70%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    background: var(--purple-modal-item);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 0px 10px;
+}
+
+.popup-weather-icon img{
+    width: 150px;
+}
+
+/* right container */
+.right-container {
+    min-height: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    flex: 1 0 200px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 20px 10px;
+}
+
+.right-container-title {
+    font-weight: 900;
+    font-size: 2.5em;
+    padding: 0px 20px;
+}
+
+.day-time-degrees {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    gap: 20px;
+}
+
+.day-degrees {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0px 15px;
+}
+
+.day-degrees:not(:last-child)::after {
+    width: 1px;
+    height: 80%;
+    display: block;
+    background-color: var(--bg-container-after-element);
+    position: absolute;
+    right: -10px;
+    content: '';
+    margin: 0 auto;
+}
+
+.popup-degrees {
+    font-weight: 900;
+    font-size: 2.5em;
+}
+
+/* close btn */
+.close-btn {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin: 0.2rem;
+    padding: 0.1rem;
+}
+
+.close-btn img {
+    font-size: 1.5rem;
+}
+
+.close-btn:hover {
+    background-color: var(--bg-sidebar-menu);
+    transform: scale(1.1);
+}
+
+.close-btn:active {
+    transform: scale(0.95);
+}
+
+.close-btn:focus {
+    outline: 1px solid var(--white);
+}
+
+@media (max-width: 1080px) {
+    .container-pop-up {
+        overflow: scroll;
+    }
+
+    .right-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .day-degrees {
+        align-items: center;
+    }
+}

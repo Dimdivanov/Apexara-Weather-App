@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="content">
+        <div class="account-settings">
+            <div class="profile-container">
+                <h2>Manage your profile</h2>
+
+                <div class="controls">
+                    <div class="inputs">
+                        <ipi-input [options]="usernameOptions"></ipi-input>
+
+                        <ipi-input [options]="emailOptions"></ipi-input>
+                    </div>
+
+                    <ipi-button class="btn-primary fluid" [options]="{ throttleTimeMs: 500 }" (clickChange)="accountUpdate()">Save Changes</ipi-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="password-settings">
+            <div class="password-container">
+                <h2>Need to change your password?</h2>
+                
+                <div class="controls">
+                    <div class="inputs">
+                        <ipi-input [options]="password"></ipi-input>
+
+                        <ipi-input [options]="newPassword"></ipi-input>
+                      
+                        <ipi-input [options]="repeatPassword"></ipi-input>
+                    </div>
+
+                    <ipi-button class="btn-primary fluid" (clickChange)="passwordUpdate()">Change Password</ipi-button>
+                </div>
+                
+                <div class="password-delete-container">
+                    <ipi-button class="btn-primary-delete" (clickChange)="shouldRender.set(true)">Delete Account</ipi-button>
+                </div>
+            </div>
+
+            @if (shouldRender()) {
+                <ipi-dialog>
+                    <ng-template #title>Are you sure you want to delete your account</ng-template>
+
+                    <ng-template #description>We would hate to see you go! If you are looking to update your username, email you can easily do those changes here.</ng-template>
+
+                    <ng-template #description>Important: Deleting account cannnot be undone.</ng-template>
+
+                    <ng-template #actions>
+                        <div class="ipi-delete-dialog">
+                            <ipi-button class="btn-primary-delete-dialog"  (clickChange)="deleteAccount()">Delete</ipi-button>
+
+                            <ipi-button (clickChange)="shouldRender.set(false)">Cancel</ipi-button>
+                        </div>
+                    </ng-template>
+                </ipi-dialog>
+            }
+        </div>
+    </div>
+</div>

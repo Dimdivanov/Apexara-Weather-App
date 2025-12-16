@@ -1,0 +1,31 @@
+.loader-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 50%;
+    border: 5px solid var(--blue-loader-primary);
+    border-bottom-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: rotation 1s linear infinite;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

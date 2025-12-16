@@ -1,0 +1,114 @@
+<div class="modal-overlay" (click)="modalService.closeModal()">
+    <div class="container-pop-up" (click)="$event.stopPropagation()">
+        @defer (on viewport) {
+            <div class="left-container">
+                <div class="day-time">
+                    <div class="day-item">
+                        <div class="sunrise">
+                            <img src="assets/img/sunrise.jpeg" alt="sunrise.jpg" draggable="false"/>
+
+                            <div class="sunrise-data">
+                                <p>Sunrise</p>
+
+                                <p>Time: {{ modalData?.sunrise| timeTransform }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-item">
+                        <div class="sunset">
+                            <img src="assets/img/sunset.jpeg" alt="sunset.jpg" draggable="false"/>
+
+                            <div class="sunset-data">
+                                <p>Sunset</p>
+
+                                <p>Time: {{ modalData?.sunset | timeTransform }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weather-data-popup">
+                    <div class="popup-data">
+                        <img src="assets/img/weather-icons/wind.svg" alt="wind-icon" draggable="false"/>
+                        
+                        <p>{{ modalData?.windSpeed }} km/h</p>
+                    </div>
+
+                    <div class="popup-data">
+                        <img src="assets/img/weather-icons/uv.svg" alt="uv-icon" draggable="false"/>
+
+                        <p>{{ modalData?.uvi }}</p>
+                    </div>
+
+                    <div class="popup-data">
+                        <img src="assets/img/weather-icons/rain.svg" alt="rain-icon" draggable="false"/>
+
+                        <p>{{ modalData?.rain }} mm</p>
+                    </div>
+
+                    <div class="popup-data">
+                        <img src="assets/img/weather-icons/humidity.svg" alt="weahter-icon.png" draggable="false"/>
+
+                        <p>{{ modalData?.humidity }}%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mid-container">
+                <div class="popup-weather-data">
+                    <div class="popup-weather-icon">
+                        <img [src]="'assets/img/weather-icons/' + modalData?.weather?.icon + '.svg'" alt="icon-weather.png" draggable="false"/>
+                    </div>
+
+                    <div class="popup-degrees">
+                        <p>{{ modalData?.temp?.day | toFixed : 0 }}°C</p>
+                    </div>
+
+                    <div class="popup-minmax-temp">
+                        <p>{{ modalData?.temp?.min | toFixed : 0 }}°C - {{ modalData?.temp?.max | toFixed : 0 }}°C</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-container">
+                <div class="right-container-title">
+                    <p>{{ modalData?.temp?.min | toFixed : 0 }}°C - {{ modalData?.temp?.max | toFixed : 0 }}°C</p>
+                </div>
+
+                <div class="day-time-degrees">
+                    <div class="day-degrees">
+                        <p>Morning</p>
+
+                        <p>{{ modalData?.temp?.morn | toFixed : 0 }}°C</p>
+                    </div>
+
+                    <div class="day-degrees">
+                        <p>Day</p>
+
+                        <p>{{ modalData?.temp?.day | toFixed : 0 }}°C</p>
+                    </div>
+
+                    <div class="day-degrees"> 
+                        <p>Evening</p>
+
+                        <p>{{ modalData?.temp?.eve | toFixed : 0 }}°C</p>
+                    </div>
+
+                    <div class="day-degrees">
+                        <p>Night</p>
+                        
+                        <p>{{ modalData?.temp?.night | toFixed : 0 }}°C</p>
+                    </div>
+                </div>
+            </div>
+        } @placeholder {
+            <p>Loading weather data...</p>
+        }
+
+        <button class="close-btn">
+            <img src="assets/img/close.svg" (click)="modalService.closeModal()"/>
+        </button>
+    </div>
+    
+</div>
