@@ -15,28 +15,21 @@ import { ForecastDetails } from './../../../models/forecast.model';
   selector: 'app-weekly-forecast',
   templateUrl: './weekly-forecast.component.html',
   styleUrls: ['./weekly-forecast.component.css'],
-  imports: [
-    DatePipe,
-    CommonModule,
-    NumToFixedPipe,
-    HighlightContainerDirective, 
-  ],
+  imports: [DatePipe, CommonModule, NumToFixedPipe, HighlightContainerDirective],
+  providers: [DashboardModalService]
 })
-
 export class WeeklyForecastComponent {
-  
   constructor(
     public modalService: DashboardModalService,
     public weatherDataService: WeatherDataService,
-    public temperatureToggleService: TemperatureUnitService) {
-    
+    public temperatureToggleService: TemperatureUnitService
+  ) {
     effect(() => {
       const fullData = this.weatherDataService.weatherData();
-        
-      this.forecastData = fullData?.dailyWeather ?? null;      
+
+      this.forecastData = fullData?.dailyWeather ?? null;
     });
   }
 
   public forecastData: ForecastDetails[] | null = null;
-  
 }

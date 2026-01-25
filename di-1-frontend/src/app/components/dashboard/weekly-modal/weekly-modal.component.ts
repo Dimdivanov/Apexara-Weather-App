@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 
 import { NumToFixedPipe } from './../../../pipes/num-to-fixed.pipe';
 import { TimeTransformPipe } from './../../../pipes/time-transform.pipe';
@@ -21,16 +21,14 @@ import { ForecastDetails } from './../../../models/forecast.model';
 })
 
 export class WeeklyModalComponent {
+  public weatherData = inject(WeatherDataService);
+  public modalService = inject(DashboardModalService);
+  public modalData: ForecastDetails | null = null;
   
-  constructor(
-    public weatherData: WeatherDataService,
-    public modalService: DashboardModalService) {
-
+  constructor() {
     effect(() => {
       this.modalData = this.modalService.modalData();      
     });
   }
-
-  public modalData: ForecastDetails | null = null;
   
 }

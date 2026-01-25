@@ -15,24 +15,17 @@ import { HourlyWeather } from './../../../../models/forecast.model';
   selector: 'app-carousel-forecast',
   templateUrl: './carousel-forecast.component.html',
   styleUrls: ['./carousel-forecast.component.css'],
-  imports: [
-    DatePipe,
-    CommonModule,
-    ButtonModule,
-    NumToFixedPipe,
-    CarouselModule, 
-  ],
+  imports: [DatePipe, CommonModule, ButtonModule, NumToFixedPipe, CarouselModule],
+  standalone: true
 })
-
-export class CarouselForecastComponent implements OnInit{
-
+export class CarouselForecastComponent implements OnInit {
   constructor(
     public weatherService: WeatherDataService,
-    public temperatureToggleService: TemperatureUnitService) {
-      
+    public temperatureToggleService: TemperatureUnitService
+  ) {
     effect(() => {
-      const data = this.weatherService.weatherData(); 
-      
+      const data = this.weatherService.weatherData();
+
       if (data?.hourlyWeather) {
         this.hourlyWeather.set(data.hourlyWeather);
       }
@@ -42,30 +35,29 @@ export class CarouselForecastComponent implements OnInit{
   public hourlyWeather = signal<HourlyWeather[]>([]);
 
   public responsiveOptions: any[] | undefined;
-  
+
   public ngOnInit(): void {
     this.responsiveOptions = [
       {
         breakpoint: '1400px',
         numVisible: 3,
-        numScroll: 1,
+        numScroll: 1
       },
       {
         breakpoint: '1199px',
         numVisible: 3,
-        numScroll: 1,
+        numScroll: 1
       },
       {
         breakpoint: '767px',
         numVisible: 2,
-        numScroll: 1,
+        numScroll: 1
       },
       {
         breakpoint: '575px',
         numVisible: 2,
-        numScroll: 1,
-      },
+        numScroll: 1
+      }
     ];
   }
-
 }

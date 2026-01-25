@@ -26,6 +26,7 @@ import { TemperatureUnitService } from './../../../services/temperature-unit.ser
     MatSlideToggleModule,
     HighlightSidebarMenuDirective, 
   ],
+  standalone: true,
 })
 
 export class SidebarComponent {
