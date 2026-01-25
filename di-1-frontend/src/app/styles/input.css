@@ -1,0 +1,55 @@
+input {
+    font-family: inherit;
+    font-size: 16px !important;
+}
+
+input:is(:-webkit-autofill, :autofill) {
+    -webkit-text-stroke: none !important;
+    -webkit-text-fill-color: var(--text-secondary) !important;
+}
+
+ipi-input {
+    --ipi-input-header-color: var(--text-primary);
+    --ipi-input-placeholder-color: var(--text-dark-grey);
+    --ipi-input-value-color: var(--text-primary);
+
+    --ipi-input-border-color: var(--trans-secondary);
+    --ipi-input-border-width: 1px;
+
+    --ipi-input-icon-left-fill: var(--icon-grey);
+
+    --ipi-input-icon-right-fill: var(--icon-grey);
+}
+
+ipi-input label {
+    font-weight: 400 !important;
+}
+
+ipi-input .input-field {
+    height: 48px !important;
+    border-radius: 1000px !important;
+    box-sizing: border-box;
+    padding: 0px 24px !important;
+}
+
+ipi-input ipi-img {
+    cursor: inherit !important;
+    width: 18px !important;
+    height: 18px !important;
+    padding: 0px !important;
+}
+
+ipi-input .input-field:has(input + ipi-img) {
+    padding-left: 24px !important;
+    padding-right: 16px !important;
+}
+
+ipi-input .input-field:has(ipi-img + input) {
+    column-gap: 4px;
+    padding-left: 16px !important;
+    padding-right: 24px !important;
+}
+
+ipi-input .header {
+    margin-bottom: 12px !important;
+}

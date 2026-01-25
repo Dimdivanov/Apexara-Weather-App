@@ -1,0 +1,63 @@
+ipi-button {
+    --ipi-button-focus-outline: transparent;
+    border-radius: 1000px !important;
+}
+
+ipi-button > .button {
+    height: 46px !important;
+    padding: 12px 24px;
+    border-radius: inherit !important;
+}
+
+ipi-button .button-wrapper {
+    padding: 0px !important;
+}
+
+/* Blue background, dark text, dark icon, no border. */
+.btn-primary {
+    --ipi-button-background-color: var(--blue-btn-primary);
+    --ipi-button-text-color: var(--text-primary);
+}
+
+/* No background, white text, white icon, transparent border. */
+.btn-secondary {
+    --ipi-button-background-color: transparent;
+    --ipi-button-text-color: var(--text-primary);
+    --ipi-button-border-color: var(--trans-secondary);
+}
+
+/* No background, blue text, blue icon, blue border. */
+.btn-secondary.active {
+    --ipi-button-text-color: var(--blue-btn-secondary);
+    --ipi-button-border-color: var(--border-blue);
+}
+
+.btn-secondary.shine-left,
+.btn-secondary.shine-right,
+.btn-secondary.shine-top-left {
+    --ipi-button-border-color: transparent;
+}
+
+.btn-group {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Delete account button, warning button */
+.btn-primary-delete {
+    --ipi-button-background-color: var(--bg-transparent-btn);
+    --ipi-button-hover: var(--red-btn-hover);
+    --ipi-button-shadow: var(--red-btn-shadow);
+    --ipi-button-text-color: var(--text-red);
+}
+
+/* Delete dialog button */
+.btn-primary-delete-dialog {
+    --ipi-button-background-color: var(--red-btn-primary);
+    --ipi-button-hover: var(--red-btn-hover);
+    --ipi-button-shadow: var(--red-btn-shadow);
+}

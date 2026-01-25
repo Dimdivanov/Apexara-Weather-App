@@ -1,0 +1,109 @@
+:root {
+    /* COLOR PALETTE */
+
+    /* new style theme colors */
+    --white-primary: #e5e7eb;
+    --white-secondary: #f7f6f9;
+
+    /* Main Colors*/
+    --blue-primary: #0a2343;     /* dark - main body */
+    --blue-secondary: #061629;   /* dark - containers */
+
+    --blue-btn-primary: #1cb0f6;    /* btn primary, search btn primary */
+    --blue-btn-secondary: #1899d6;   /* btn secondary */
+
+    --blue-close-btn-secondary: #1CB0F6;
+    --blue-close-btn-fill: #a7e3ff;
+
+    --blue-search-primary: #33b8f6;    /* search btn input */
+    --blue-search-secondary: #5db8e2;  /* search btn secondary */
+
+    --blue-boxshadow-primary:rgba(0, 153, 255, 0.8); /* hoover on forecast directiven */
+    --blue-loader-primary: #214be2;
+    --blue-home-link: #012a5b;
+
+    --purple-modal-primary: #6565c1;
+    --purple-modal-item: linear-gradient(-20deg, #6565c1 30%, #5532ef 100%);
+
+    --blue-temp-primary: #89b3e7; /* cold temp & humidity */
+    
+    --weekly-hover-shadow: rgba(28, 176, 246, 0.3);;
+    --transparent-boxshadow: rgb(0, 0, 0, 0.15); /* modal dark background */
+    --transparent-boxshadow-light: rgb(0, 0, 0, 0.8); /* modal light background */
+    --transparent-background-modal: rgba(0, 0, 0, 0.5); /* modal dark background */
+
+    --grey-dark: rgba(255, 255, 255, 0.4);
+    --error-shadow: rgba(255, 255, 255, 0.2);
+    --gray-sidenav-menu: rgba(255, 255, 255, 0.1);
+
+    --orange-temp-primary: #ff852f; /* hot temp */
+    --p-carousel-indicator-active-background: #ff9800; /* carousel tab button active */
+
+    --red-primary: #e74c3c; /* errors */
+
+    --red-btn-hover: #c0392b;   /* darker red for hover effect */
+    --red-btn-primary: #f3230c; /* bright red for main delete action */
+    --red-btn-shadow: rgba(231, 76, 60, 0.4); /* subtle red shadow */
+
+    --transparency: transparent;
+
+    /* Error Container */
+    --text-shadow-error: var(--error-shadow);
+
+    /* Borders */
+    --blue-modal-border: var(--blue-modal-primary);
+
+    /* Additional Colors */
+    --white-primary: #eef5ff;  /* light - main body */
+    --white: #FFFFFF;    
+    --skeleton: #e0e0e0;
+    --white-hover: #f0f0f0;
+    --gray: #cccc;
+    --gray-text: #a0a0a0;
+    --before-after: #d5d5d5;
+    --black: #000000;
+    --red: #c0392b;
+
+    /* Backgrounds */
+    --bg-container-primary: var(--white-primary);
+    --bg-container-left-primary: var(--white);
+    --bg-container-after-element: var(--before-after);
+    --bg-container-right-primary: var(--white-secondary);
+
+    --bg-icon-primary: var(--blue-modal-secondary);
+
+    --bg-dark-primary: var(--blue-primary);
+    --bg-light-primary: var(--white-primary);
+
+    --bg-modal-primary: var(--white);
+    --bg-modal-table: var(--blue-modal-primary);
+
+    --bg-sidebar-menu: var(--gray-sidenav-menu);
+    --bg-sidebar-toggle: var(--blue-btn-secondary);
+    
+    --bg-settings-menu: var(--blue-btn-secondary);
+    /* Button Backgrounds */
+    --bg-transparent-btn: var(--transparency);
+
+    /* Modal bg */
+    --bg-modal-secondary: var(--blue-modal-secondary);
+    --bg-transparent-light: var(--transparent-boxshadow-light);
+
+    /* Container-bg-color */
+    --container-dark-color: var(--blue-secondary);
+    --container-light-color: var(--white);
+
+    /* Text */
+    --text-primary: var(--white);
+    --text-dark-grey: var(--grey-dark);
+    --text-white: var(--white);
+    --text-black: var(--black);
+    --text-red: var(--red);
+
+     /* Trans */
+    --trans-primary: rgba(255, 255, 255, .06);
+    --trans-secondary: rgba(255, 255, 255, .12);
+    --trans-shine-left: linear-gradient(160deg, var(--white) -17%, var(--trans-secondary) 29%);
+    --trans-shine-right: linear-gradient(220deg, var(--white) -17%, var(--trans-secondary) 29%);
+    --trans-shine-top-left: linear-gradient(170deg, var(--white) -17%, var(--trans-secondary) 29%);
+}

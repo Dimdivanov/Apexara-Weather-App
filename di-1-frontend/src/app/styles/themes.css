@@ -1,0 +1,11 @@
+.light {
+    --bg-color: var(--bg-light-primary);
+    --theme-container-color: var(--container-light-color);
+    --text-color: var(--text-black);
+}
+
+.dark {
+    --bg-color: var(--bg-dark-primary);
+    --theme-container-color: var(--container-dark-color);
+    --text-color: var(--text-white);
+}

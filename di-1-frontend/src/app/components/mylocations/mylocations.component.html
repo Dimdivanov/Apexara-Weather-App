@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="title">
+        <span>My Locations</span>
+    </div>
+
+    <table class="location-table">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Weather</th>
+                <th>Temperature</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(location of myLocations; track $index) {
+                <tr>
+                    <td>{{ location?.name }}</td>
+                    <td>
+                        <img
+                            [src]="'https://openweathermap.org/img/wn/' + location?.icon + '.png'"
+                            alt="weather-icon"
+                            class="weather-icon"
+                        />
+                    </td>
+                    <td>{{ location?.temp | toFixed : 0 }}°C</td>
+                    <td>{{ location?.description }}</td>
+                    <td>
+                        <img 
+                            src="assets/img/bin.svg"
+                            alt="bin-icon" 
+                            class="delete-btn" 
+                            (click)="deleteCity(location.name)"
+                        />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
