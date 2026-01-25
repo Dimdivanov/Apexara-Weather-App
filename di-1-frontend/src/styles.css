@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@import './app/styles/variables.css';
+@import './app/styles/global.css';
+@import './app/styles/themes.css';
+@import './app/styles/fonts.css';
+@import './app/styles/input.css';
+@import './app/styles/button.css';

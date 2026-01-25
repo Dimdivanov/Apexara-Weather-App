@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 120" width="800" height="800">
+  <defs>
+    <!-- Gradients for clouds -->
+    <linearGradient id="darkCloudGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A4A4A"/>
+      <stop offset="100%" stop-color="#2B2B2B"/>
+    </linearGradient>
+    <linearGradient id="lightCloudGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B0BEC5"/>
+      <stop offset="100%" stop-color="#78909C"/>
+    </linearGradient>
+    <linearGradient id="whiteCloudGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F7FA"/>
+      <stop offset="100%" stop-color="#CFD8DC"/>
+    </linearGradient>
+
+    <!-- Lightning gradient for 3D effect -->
+    <linearGradient id="lightningGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF176"/>
+      <stop offset="50%" stop-color="#FBC02D"/>
+      <stop offset="100%" stop-color="#F57F17"/>
+    </linearGradient>
+
+    <!-- Lightning shadow -->
+    <filter id="lightningShadow" x="-20%" y="-20%" width="140%" height="140%" >
+      <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="#FFA000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(-15,0)">
+    <!-- Dark puffier cloud -->
+    <ellipse cx="95" cy="70" rx="50" ry="35" fill="url(#darkCloudGradient)" />
+    <ellipse cx="65" cy="70" rx="40" ry="30" fill="url(#darkCloudGradient)" />
+    <ellipse cx="110" cy="50" rx="35" ry="25" fill="url(#darkCloudGradient)" />
+
+    <!-- Lighter cloud overlapping and slightly above -->
+    <ellipse cx="140" cy="50" rx="45" ry="32" fill="url(#lightCloudGradient)" />
+    <ellipse cx="170" cy="65" rx="35" ry="25" fill="url(#lightCloudGradient)" />
+    <ellipse cx="125" cy="70" rx="30" ry="20" fill="url(#lightCloudGradient)" />
+
+    <!-- Smaller white cloud on top -->
+    <ellipse cx="170" cy="35" rx="25" ry="18" fill="url(#whiteCloudGradient)" />
+    <ellipse cx="195" cy="45" rx="20" ry="15" fill="url(#whiteCloudGradient)" />
+    <ellipse cx="155" cy="45" rx="20" ry="15" fill="url(#whiteCloudGradient)" />
+
+    <!-- 3D Lightning bolt coming from dark cloud -->
+    <path
+      filter="url(#lightningShadow)"
+      fill="url(#lightningGradient)"
+      stroke="#F9A825"
+      stroke-width="1"
+      d="M90 80
+         L105 80
+         L95 100
+         L110 100
+         L85 130
+         L95 105
+         L80 105
+         Z"
+    />
+  </g>
+</svg>

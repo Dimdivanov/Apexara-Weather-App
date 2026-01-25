@@ -1,0 +1,19 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="800" height="800">
+  <defs>
+    <radialGradient id="moonGradient" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f0f0f0"/>
+      <stop offset="60%" stop-color="#cccccc"/>
+      <stop offset="100%" stop-color="#999999"/>
+    </radialGradient>
+    <filter id="moonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Full Moon -->
+  <circle cx="32" cy="32" r="16" fill="url(#moonGradient)" filter="url(#moonGlow)" />
+</svg>

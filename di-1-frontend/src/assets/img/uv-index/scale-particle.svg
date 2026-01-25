@@ -1,0 +1,21 @@
+<svg width="800px" height="800px" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="uvGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6600"/>
+      <stop offset="100%" stop-color="#ffff00"/>
+    </linearGradient>
+  </defs>
+
+  <circle
+    cx="41"
+    cy="41"
+    r="36"
+    stroke="url(#uvGradient)"
+    stroke-width="10"
+    fill="none"
+    stroke-dasharray="113.1"
+    stroke-dashoffset="0"
+    stroke-linecap="round"
+    transform="rotate(0 41 41)"
+  />
+</svg>

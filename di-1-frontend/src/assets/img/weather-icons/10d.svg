@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" width="800" height="800">
+  <defs>
+    <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD93B"/>
+      <stop offset="100%" stop-color="#F4B400"/>
+    </radialGradient>
+    <linearGradient id="cloudGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECEFF1"/>
+      <stop offset="100%" stop-color="#B0BEC5"/>
+    </linearGradient>
+    <linearGradient id="rainGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sun -->
+  <circle cx="50" cy="50" r="20" fill="url(#sunGradient)" />
+
+  <!-- Big puffier cloud formed by three overlapping ellipses -->
+  <ellipse cx="105" cy="62" rx="40" ry="28" fill="url(#cloudGradient)" />
+  <ellipse cx="75" cy="62" rx="35" ry="24" fill="url(#cloudGradient)" />
+  <ellipse cx="95" cy="45" rx="30" ry="20" fill="url(#cloudGradient)" />
+
+  <!-- Raindrops below the cloud -->
+  <ellipse cx="85" cy="100" rx="4" ry="10" fill="url(#rainGradient)" />
+  <ellipse cx="105" cy="105" rx="4" ry="10" fill="url(#rainGradient)" />
+  <ellipse cx="125" cy="100" rx="4" ry="10" fill="url(#rainGradient)" />
+  <ellipse cx="145" cy="105" rx="4" ry="10" fill="url(#rainGradient)" />
+</svg>
