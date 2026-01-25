@@ -6,9 +6,6 @@ import { LayoutComponent } from '././components/layout/layout.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [
-    LayoutComponent,
-  ],
+  imports: [LayoutComponent]
 })
-
-export class AppComponent { }
+export class AppComponent {}

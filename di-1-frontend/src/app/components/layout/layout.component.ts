@@ -21,15 +21,13 @@ import { GeolocateService } from './../../services/geolocate.service';
     FooterComponent,
     SidebarComponent,
     NavigationComponent,
-    AuthenticatingComponent,
-  ],
+    AuthenticatingComponent
+  ]
 })
-
 export class LayoutComponent {
-
   constructor(
     public themeService: ThemeService,
     public geoLocateService: GeolocateService,
-    public navigationService: NavigationService) { }
-  
+    public navigationService: NavigationService
+  ) {}
 }
